@@ -182,7 +182,9 @@ def get_service_status(repo_url, server_name):
 			cmd = 'ls -s {0}'.format(error_file_path)
 			stdout, stderr = ssh_client.execute(cmd)
 			
-			so = list(stdout.partition())
+			print type(stdout)
+
+			so = list(stdout.partition(' '))
 			if so[0] == '0':
 				flag = 1
 			else:
@@ -210,7 +212,7 @@ def get_service_status(repo_url, server_name):
 			# else:
 				# 	return "Service is done executing"
     		
-    		ssh_client.close()
+	ssh_client.close()
 
 def main():
     ssh = SSH()
