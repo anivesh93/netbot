@@ -263,7 +263,8 @@ def check_github_repo(repo_url):
     else:
         return True
 
-# check if the given pid is a running process
+# check if the given pid is a running process, 
+# checks only on current machine, for remote server, do ssh instead
 def check_pid(pid):        
     try:
         os.kill(pid, 0)
